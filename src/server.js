@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import superHeroesRouter from './routes/heroes.js';
 
 import { initMongoConnection } from './db/initMongoConnection.js';
 
@@ -34,7 +35,7 @@ function setupServer() {
   });
   //   app.use('/uploads', express.static(UPLOAD_DIR));
 
-  //   app.use(contactsRouter);
+  app.use(superHeroesRouter);
 
   app.use('*', notFoundHandler);
 
